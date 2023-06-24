@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Dis = () => {
+const Comment = () => {
     return (
         <div>
-            <h1>disc</h1>
+
         </div>
     )
 }
 
-export default Dis
+export default Comment

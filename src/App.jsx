@@ -1,14 +1,20 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dis from "./pages/Dis";
+import Nav from "./components/Nav";
+import Home from "./pages/Home";
+import { Comment } from "@mui/icons-material";
+
+
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline bg-black text-white">Hello world!</h1>
+      <Nav />
       <Routes>
-        <Route path="/dis" element={<Dis />} />
+        <Route path="/comment" element={<Comment />} />
+        <Route path="/" element={<Home />} />
       </Routes>
+
     </>
   );
 }
