@@ -4,17 +4,25 @@ import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import QuestionAnswerOutlinedIcon from '@mui/icons-material/QuestionAnswerOutlined';
 import ShareIcon from '@mui/icons-material/Share';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { useNavigate } from "react-router-dom";
+import { useGlobalPosts } from '../contexts/forum-context';
 
 
 const PostCard = ({ postData }) => {
+    const { addToBookmarks, upvoteFunc, downvoteFunc } = useGlobalPosts()
+
     const navigate = useNavigate();
     return (
         <div className="data shadow-md border p-2 rounded-md flex flex-col">
-            <div className="votes flex flex-col">
-                <ArrowCircleUpIcon />
+            <div className="votes flex flex-col cursor-pointer">
+                <div className="upvote" onClick={() => upvoteFunc(postData.postId)}>
+                    <ArrowCircleUpIcon />
+                </div>
                 {postData.upvotes - postData.downvotes}
-                <ArrowCircleDownIcon />
+                <div className="downvote cursor-pointer" onClick={() => downvoteFunc(postData.postId)}>
+                    <ArrowCircleDownIcon />
+                </div>
 
             </div>
             <p className="text-gray-600">posted by : {postData.name}</p>
@@ -37,7 +45,11 @@ const PostCard = ({ postData }) => {
                     <ShareIcon />
                 </div>
                 <div className="bookmark cursor-pointer  "  >
-                    <BookmarkBorderIcon onClick={() => setIsBookMark(!isBookMark)} />
+                    {
+                        postData.isBookmarked ?
+                            <BookmarkIcon className={'text-2xl cursor-pointer'} onClick={() => addToBookmarks(postData.postId)} /> :
+                            <BookmarkBorderIcon className={'text-2xl cursor-pointer'} onClick={() => addToBookmarks(postData.postId)} />
+                    }
                 </div>
             </div>
         </div>

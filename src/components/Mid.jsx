@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { forumData } from "../db/ForumData";
 import PostCard from "./PostCard";
+import { useGlobalPosts } from "../contexts/forum-context";
 
 
 const Mid = () => {
-    const [post, setPost] = useState([])
-    const [isBookMark, setIsBookMark] = useState(false)
+    const { sortedPosts } = useGlobalPosts()
     console.log(forumData);
 
 
     return (
         <div className="w-[90%]">
 
-            {forumData.posts.map((postData) => (
+            {sortedPosts.map((postData) => (
 
                 <PostCard postData={postData} />
             ))}

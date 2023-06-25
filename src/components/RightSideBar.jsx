@@ -1,14 +1,16 @@
 import React from 'react'
+import { useGlobalPosts } from '../contexts/forum-context'
 
 const RightSideBar = () => {
+    const { setSortBy } = useGlobalPosts()
+
     return (
 
-        <div className='w-[30%] '>
-            <h1>sort by</h1>
-            <br />
-            <select name="" id="" className='border'>
-                <option value="">Latest</option>
-                <option value="">Trending</option>
+        <div className="sort bg-red-50 mt-10 rounded-lg p-3 hidden md:flex flex-col gap-6 md:sticky top-28 w-60">
+            <h2 className={'text-lg'}>Sort By</h2>
+            <select onChange={(e) => setSortBy(e.target.value)} name="sort" id="sort" className={'bg-gray-300 p-2'}>
+                <option value="latest">Latest Posts</option>
+                <option value="upvote">Most upvoted</option>
             </select>
         </div>
     )
