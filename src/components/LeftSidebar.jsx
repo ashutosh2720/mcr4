@@ -24,7 +24,7 @@ const LeftSidebar = () => {
                     </div>
                 </div>
 
-                <div className="home flex justify-start item-start gap-3 hover:bg-cyan-900 transition ease-in-out delay-15  rounded p-1 cursor-pointer  hover:text-black" onClick={() => navigate("/explore")}>
+                <div className="home flex justify-start item-start gap-3 hover:bg-cyan-900 transition ease-in-out delay-15  rounded p-1 cursor-pointer  hover:text-black" onClick={() => navigate("/")}>
                     <ExploreOutlinedIcon
 
                         fontSize="large"
@@ -35,7 +35,7 @@ const LeftSidebar = () => {
                     </div>
                 </div>
 
-                <div className="home flex justify-start item-center gap-3 hover:bg-cyan-900 transition ease-in-out delay-15  rounded p-1 cursor-pointer  hover:text-black" onClick={() => navigate("/bookmark")}>
+                <div className="home flex justify-start item-center gap-3 hover:bg-cyan-900 transition ease-in-out delay-15  rounded p-1 cursor-pointer  hover:text-black" onClick={() => navigate("/")}>
                     <BookmarkBorderOutlinedIcon
 
                         fontSize="large"
@@ -46,7 +46,7 @@ const LeftSidebar = () => {
                     </div>
                 </div>
 
-                <div className="home flex justify-start item-center gap-3 hover:bg-cyan-900 transition ease-in-out delay-15  rounded p-1 cursor-pointer  hover:text-black" onClick={() => navigate("/liked")}>
+                <div className="home flex justify-start item-center gap-3 hover:bg-cyan-900 transition ease-in-out delay-15  rounded p-1 cursor-pointer  hover:text-black" onClick={() => navigate("/")}>
                     <FavoriteIcon
 
                         fontSize="large"
